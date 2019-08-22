@@ -1,0 +1,87 @@
+.top-section {
+  padding: 0;
+  height: 60vh;
+  background-color: $white!important;
+  header {
+    width: 100%;
+    background: $color_minsk_approx;
+    color: $white;
+    height: 68px;
+    position: relative;
+    text-align: center;
+    box-shadow: 2px 2px 9px $color_suva_gray_approx;
+    z-index: 10;
+    .back-button {
+      position: absolute;
+      left: 10px;
+      border-width: 0;
+      border: none;
+      background: transparent;
+      top: 0;
+      bottom: 0;
+      i {
+        font-size: 3rem;
+      }
+    }
+    h1 {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      bottom: 0;
+      margin: 0;
+      text-align: center;
+      color: $white;
+      width: 100%;
+      left: 0;
+    }
+  }
+  .top-content {
+    padding-top: 10px;
+    h2 {
+      text-align: left;
+    }
+    .bill-status {
+      position: absolute;
+      right: 40px;
+      top: 5px;
+      width: 20%;
+    }
+    .menu-button {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+    }
+  }
+  .sponsors-list {
+    margin-top: 10px;
+    color: $color_silver_chalice_approx;
+    font-size: 90%;
+    text-align: left;
+  }
+  .summary-text {
+    text-align: left;
+    margin-top: 10px;
+    font-size: 90%;
+    line-height: 1.1rem;
+  }
+  .scroll-panel {
+    padding-top: 10px;
+    padding-right: 5px;
+    height: 300px;
+    overflow-y: auto;
+  }
+  .main-sponsor-tag span {
+    background: $light_orange;
+    padding: 0 3px;
+    float: left;
+  }
+  .committee-tag span {
+    background: $light_violet;
+    padding: 0 3px;
+    float: left;
+    margin-top: 3px;
+    margin-right: 5px;
+    color: $color_chicago_approx;
+    font-size: 90%;
+  }
+}

@@ -1,0 +1,35 @@
+body {
+  font-family: $font_0;
+  scroll-snap-type: mandatory;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y proximity;
+}
+
+section {
+  border-bottom: 1px solid $white;
+  padding: 1rem;
+  height: 100vh;
+  scroll-snap-align: start;
+  text-align: center;
+  position: relative;
+}
+
+h1 {
+  font-size: calc(1rem +3vw);
+}
+
+.scroll-panel::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+.scroll-panel::-webkit-scrollbar-track {
+  @include border-radius(10px !important);
+}
+
+.scroll-panel::-webkit-scrollbar-thumb {
+  @include border-radius(10px !important);
+  background: $color_silver_approx !important;
+  &:window-inactive {
+    background: $color_silver_approx !important;
+  }
+}

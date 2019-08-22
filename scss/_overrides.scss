@@ -1,0 +1,20 @@
+/* Override Pure Css */
+
+.pure-menu-horizontal {
+  &.pure-menu-scrollable {
+    background-color: $color_kimberly_approx;
+    padding: 0;
+  }
+  &.pure-menu-scrollable::-webkit-scrollbar {
+    display: none;
+  }
+}
+.pure-menu-link {
+  color: $white;
+  font-size: 1.2rem;
+      padding: .2em 1em;
+}
+ul.pure-menu-list {
+  scroll-padding: 0 50%;
+  scroll-snap-type: x mandatory!important;
+}
