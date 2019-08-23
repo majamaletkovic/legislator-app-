@@ -21,3 +21,10 @@
     }
   }
 }
+
+.sticky .nav-section {
+  position: fixed;
+  top: 68px;
+  width: 100%;
+  z-index: 1;
+}

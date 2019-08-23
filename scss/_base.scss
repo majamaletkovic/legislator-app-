@@ -1,8 +1,14 @@
 body {
   font-family: $font_0;
+  // scroll-snap-type: mandatory;
+  // scroll-snap-points-y: repeat(100vh);
+  // scroll-snap-type: y proximity;
+}
+.wrapper-section {
   scroll-snap-type: mandatory;
   scroll-snap-points-y: repeat(100vh);
   scroll-snap-type: y proximity;
+  padding-top: 68px;
 }
 
 section {

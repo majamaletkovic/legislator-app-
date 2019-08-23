@@ -12,9 +12,15 @@
 .pure-menu-link {
   color: $white;
   font-size: 1.2rem;
-      padding: .2em 1em;
+  padding: .2em 1em;
 }
 ul.pure-menu-list {
   scroll-padding: 0 50%;
   scroll-snap-type: x mandatory!important;
+}
+
+/* Bootstrap*/
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  background: transparent;
+  font-weight: bold;
 }

@@ -1,40 +1,41 @@
-.top-section {
-  padding: 0;
-  height: 60vh;
-  background-color: $white!important;
-  header {
-    width: 100%;
-    background: $color_minsk_approx;
-    color: $white;
-    height: 68px;
-    position: relative;
-    text-align: center;
-    box-shadow: 2px 2px 9px $color_suva_gray_approx;
-    z-index: 10;
-    .back-button {
-      position: absolute;
-      left: 10px;
-      border-width: 0;
-      border: none;
-      background: transparent;
-      top: 0;
-      bottom: 0;
-      i {
-        font-size: 3rem;
-      }
-    }
-    h1 {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      bottom: 0;
-      margin: 0;
-      text-align: center;
-      color: $white;
-      width: 100%;
-      left: 0;
+#header {
+  width: 100%;
+  background: $color_minsk_approx!important;
+  color: $white;
+  height: 68px;
+  border: 0px;
+  text-align: center;
+  box-shadow: 2px 2px 9px $color_suva_gray_approx;
+  z-index: 10;
+  position: fixed;
+  .back-button {
+    position: absolute;
+    left: 10px;
+    border-width: 0;
+    border: none;
+    background: transparent;
+    top: 0;
+    bottom: 0;
+    i {
+      font-size: 3rem;
     }
   }
+  h1 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: 0;
+    margin: 0;
+    text-align: center;
+    color: $white;
+    width: 100%;
+    left: 0;
+  }
+}
+.top-section {
+  padding: 0;
+  height: 50vh;
+  background-color: $white!important;
   .top-content {
     padding-top: 10px;
     h2 {
@@ -84,4 +85,7 @@
     color: $color_chicago_approx;
     font-size: 90%;
   }
+}
+#intro-data {
+
 }

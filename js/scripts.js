@@ -1,131 +1,129 @@
-const gra = function(min, max) {
-    return Math.random() * (max - min) + min;
-}
+includeJs("js/scrollSnapPolyfillScript.js");
 
-const gri = function(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-const init = function(){
-  let items = document.querySelectorAll('.gallery li');
-  for (let i = 0; i < items.length; i++){
-    items[i].style.minWidth = gra(30,60) + 'vw';
-    items[i].style.background = randomColor({luminosity: 'light'});
-  }
-  let verticalItems = document.querySelectorAll('section');
-  for (let i = 0; i < verticalItems.length; i++){
-    verticalItems[i].style.background = randomColor({luminosity: 'light'});
-  }
-  cssScrollSnapPolyfill()
-}
-init();
-
-/////
+//Back Button
 
 function goBack() {
   window.history.back();
 }
 
-////
-
-$(window).bind('mousewheel', function(event) {
-if (event.originalEvent.wheelDelta >= 0) {
-  //  alert('Scroll up');
-}
-else {
-   // alert('Scroll down');
-}
-});
-
-
-
-
-
-function showHideTopArea() {
-  alert('ZZZZ');
-}
 
 let topSection = document.getElementById('top-section');
 let navSection = document.getElementById('nav-section');
 let listSection = document.getElementById('list-section');
 let horizontalNav = document.getElementById('horizontal-nav');
-
+let header = document.getElementById('header');
 
 let topSectionHammer = new Hammer(topSection);
-// let navSectionHammer = new Hammer(navSection);
 let listSectionHammer = new Hammer(listSection);
 
 
-//Calculate 100vh - height of the nav bar
-let theHeight = window.innerHeight - horizontalNav.offsetHeight - 50;
 
+//Calculate 100vh - height of the nav bar
+let theHeight = window.innerHeight - horizontalNav.offsetHeight - header.offsetHeight - 50;
+
+// To reveal part of the top section that is not visible on page load
 topSectionHammer
-  .on('panup', function(ev) {
-    //console.log(ev);
-    //topSection.style.height = '60vh';
-  })
   .on('pandown', function(ev) {
     topSection.style.height = theHeight +'px';
   });
 
- let introDataHeight = document.getElementById('intro-data').offsetHeight;
- let headerHeight = document.getElementById('header').offsetHeight;
- let summaryTextScroll = document.getElementById('summary-text-scroll');
 
- //Calculate the height of te scrollbar
- let scrollHeight = theHeight - (introDataHeight + headerHeight) - 20 + 'px';
-
- summaryTextScroll.style.height = scrollHeight;
-
-
-
-// navSectionHammer
-//   .on('panup', function(ev) {
-//     //console.log(ev);
-//    // topSection.style.height = '60vh';
-//   })
-//   .on('swipedown', function(ev) {
-//    // let myHeight = horizontalNav.offsetHeight +'px';
-//    // topSection.style.height = `calc(100vh - ${myHeight})`;
-//       topSection.style.height = theHeight;
-//   });
-
+//Gestures on the list section
 listSectionHammer
   .on('panup', function(ev) {
-    //console.log(ev);
-  //  topSection.style.height = '60vh';
+    //Maybe remove?
+    $("#top-section").slideUp( "slow", function() {});
   })
   .on('swipedown', function(ev) {
-  //  let myHeight = horizontalNav.offsetHeight +'px';
-  //  topSection.style.height = `calc(100vh - ${myHeight})`;
-   // topSection.style.height = '60vh';
-      topSection.style.height = theHeight +'px';
+     // topSection.style.height = theHeight +'px';
+    $("#top-section").slideDown( "slow", function() {});
+    body.classList.remove('sticky');
+    listSection.style.paddingTop = '0px';
+    listSection.scrollTop = 0;
+  })
+  .on('pandown', function(ev) {
+    $("#top-section").slideDown( "slow", function() {});
+    body.classList.remove('sticky');
+    listSection.style.paddingTop = '0px';
+    listSection.scrollTop = 0;
   });
 
 
-// (function (window, document) {
-// document.getElementById('toggle').addEventListener('click', function (e) {
-//     document.getElementById('tuckedMenu').classList.toggle('custom-menu-tucked');
-//     document.getElementById('toggle').classList.toggle('x');
-// });
-// })(this, this.document);
+ let introDataHeight = document.getElementById('intro-data').offsetHeight;
+ let headerHeight = document.getElementById('header').offsetHeight;
+ let summaryTextScroll = document.getElementById('summary-text-scroll');
+ let body = document.getElementById('body');
+
+ //Calculate the height of the top text scrollbar
+ let scrollHeight = theHeight - (introDataHeight) - 20 + 'px';
+ summaryTextScroll.style.height = scrollHeight;
+
+
+  //Make sure horisontal nav bar sticks to the top
+  body.onscroll = stickyHeader;
+  //Header & navbar height
+  let topHeight = navSection.offsetHeight + header.offsetHeight;
+  function stickyHeader(e) {
+    //when list section gets to certain height on scroll, make navbar sticky
+    if( ($(listSection).offset().top - $(document).scrollTop()) <= topHeight) {
+      body.classList.add('sticky');
+      listSection.style.paddingTop = navSection.offsetHeight + 'px';
+      listSection.scrollTop = 0;
+    }
+    else {
+      body.classList.remove('sticky');
+      listSection.style.paddingTop = '0px';
+      listSection.scrollTop = 0;
+    }
+    return false;
+  }
+
+
+//Capture horizontal nav scroll
+horizontalNav.onscroll = navScroll;
+function navScroll(e) {
+   console.log(e.currentTarget.scrollTop);
+  //log.textContent = `Scroll position: ${e.target.scrollTop}`;
+}
+
+//If horizontal nav is clicked, push it to the top of the page
+horizontalNav.onclick = expandList;
+
+function expandList(e) {
+  $("#top-section").slideUp( "slow", function() {
+    // Animation complete.
+    // scroll to the top of the list section
+    listSection.scrollTop = 0;
+  });
+  return false;
+}
 
 
 
 //When whole body scrolls
-window.onscroll = function(e) {
-  // print "false" if direction is down and "true" if up
-//  alert(this.oldScroll > this.scrollY);
-  if (this.oldScroll > this.scrollY === false) {
-   // alert('Going Down');
-  }
-  else {
-  //  alert(window.scrollY);
-  //  alert('Going Up');
-    // if(window.scrollY > 400) {
-    //  // alert('AA');
-    //   topElement.style.height = '60vh';
-    // }
-  }
-  this.oldScroll = this.scrollY;
+// window.onscroll = function(e) {
+//   // print "false" if direction is down and "true" if up
+// //  alert(this.oldScroll > this.scrollY);
+//   if (this.oldScroll > this.scrollY === false) {
+//    // alert('Going Down');
+//   }
+//   else {
+//   //  alert(window.scrollY);
+//   //  alert('Going Up');
+//     // if(window.scrollY > 400) {
+//     //  // alert('AA');
+//     //   topElement.style.height = '60vh';
+//     // }
+//   }
+//   this.oldScroll = this.scrollY;
+// }
+
+// To include other JS files
+function includeJs(jsFilePath) {
+    var js = document.createElement("script");
+
+    js.type = "text/javascript";
+    js.src = jsFilePath;
+
+    document.body.appendChild(js);
 }
