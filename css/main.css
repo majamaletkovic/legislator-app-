@@ -1,8 +1,11 @@
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif; }
+
+.wrapper-section {
   scroll-snap-type: mandatory;
   scroll-snap-points-y: repeat(100vh);
-  scroll-snap-type: y proximity; }
+  scroll-snap-type: y proximity;
+  padding-top: 68px; }
 
 section {
   border-bottom: 1px solid white;
@@ -31,39 +34,41 @@ h1 {
   .scroll-panel::-webkit-scrollbar-thumb:window-inactive {
     background: #bbbbbd !important; }
 
+#header {
+  width: 100%;
+  background: #423970 !important;
+  color: white;
+  height: 68px;
+  border: 0px;
+  text-align: center;
+  box-shadow: 2px 2px 9px #888888;
+  z-index: 10;
+  position: fixed; }
+  #header .back-button {
+    position: absolute;
+    left: 10px;
+    border-width: 0;
+    border: none;
+    background: transparent;
+    top: 0;
+    bottom: 0; }
+    #header .back-button i {
+      font-size: 3rem; }
+  #header h1 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: 0;
+    margin: 0;
+    text-align: center;
+    color: white;
+    width: 100%;
+    left: 0; }
+
 .top-section {
   padding: 0;
-  height: 60vh;
+  height: 50vh;
   background-color: white !important; }
-  .top-section header {
-    width: 100%;
-    background: #423970;
-    color: white;
-    height: 68px;
-    position: relative;
-    text-align: center;
-    box-shadow: 2px 2px 9px #888888;
-    z-index: 10; }
-    .top-section header .back-button {
-      position: absolute;
-      left: 10px;
-      border-width: 0;
-      border: none;
-      background: transparent;
-      top: 0;
-      bottom: 0; }
-      .top-section header .back-button i {
-        font-size: 3rem; }
-    .top-section header h1 {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      bottom: 0;
-      margin: 0;
-      text-align: center;
-      color: white;
-      width: 100%;
-      left: 0; }
   .top-section .top-content {
     padding-top: 10px; }
     .top-section .top-content h2 {
@@ -123,9 +128,27 @@ h1 {
       .nav-section li a.active {
         border-bottom: 4px solid #ff7f35; }
 
+.sticky .nav-section {
+  position: fixed;
+  top: 68px;
+  width: 100%;
+  z-index: 1; }
+
 #list-section {
-  padding: 0;
-  background: white !important; }
+  padding: 0 15px 50px 15px;
+  background: #EDEDEE !important;
+  height: auto;
+  min-height: 100vh;
+  overflow-y: auto; }
+  #list-section .list-item {
+    border-bottom: 1px solid #939598;
+    background: white;
+    padding: 10px; }
+    #list-section .list-item .date {
+      color: #adaeae; }
+
+.sticky #list-section {
+  padding-top: 45px; }
 
 #footer {
   position: fixed;
@@ -154,5 +177,10 @@ h1 {
 ul.pure-menu-list {
   scroll-padding: 0 50%;
   scroll-snap-type: x mandatory !important; }
+
+/* Bootstrap*/
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  background: transparent;
+  font-weight: bold; }
 
 /*# sourceMappingURL=main.css.map */

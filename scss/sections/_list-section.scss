@@ -1,4 +1,19 @@
 #list-section {
-  padding: 0;
-  background: $white!important;
+  padding: 0 15px 50px 15px;
+  background: $list_background!important;
+  height: auto;
+  min-height: 100vh;
+  overflow-y: auto;
+  .list-item {
+    border-bottom: 1px solid $list_border;
+    background: $white;
+    padding:10px;
+    .date {
+      color: $color_silver_chalice_approx;
+    }
+  }
+}
+
+.sticky #list-section {
+  padding-top: 45px;
 }
