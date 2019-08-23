@@ -6,6 +6,7 @@
   height: 50px;
   background: $footer_violet;
   color: $white;
+  z-index: 4;
   box-shadow: 0 -5px 5px -5px $color_suva_gray_approx;
   .col-3 {
     border-right: 1px solid $color_kimberly_approx;

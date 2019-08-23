@@ -12,10 +12,11 @@ let navSection = document.getElementById('nav-section');
 let listSection = document.getElementById('list-section');
 let horizontalNav = document.getElementById('horizontal-nav');
 let header = document.getElementById('header');
+let mainMenu = document.getElementById('main-menu');
 
 let topSectionHammer = new Hammer(topSection);
 let listSectionHammer = new Hammer(listSection);
-
+let mainMenuHammer = new Hammer(mainMenu);
 
 
 //Calculate 100vh - height of the nav bar
@@ -46,6 +47,21 @@ listSectionHammer
     body.classList.remove('sticky');
     listSection.style.paddingTop = '0px';
     listSection.scrollTop = 0;
+  });
+
+
+//Gestures on the main menu
+mainMenuHammer
+  .on('panup', function(ev) {
+    openMenu();
+  })
+  .on('swipedown', function(ev) {
+    //Not working yet
+    closeMenu();
+  })
+  .on('pandown', function(ev) {
+    //Not working yet
+    closeMenu();
   });
 
 
@@ -82,7 +98,7 @@ listSectionHammer
 //Capture horizontal nav scroll
 horizontalNav.onscroll = navScroll;
 function navScroll(e) {
-   console.log(e.currentTarget.scrollTop);
+  console.log(e.currentTarget.scrollTop);
   //log.textContent = `Scroll position: ${e.target.scrollTop}`;
 }
 
@@ -117,6 +133,46 @@ function expandList(e) {
 //   }
 //   this.oldScroll = this.scrollY;
 // }
+
+//main-menu-toggle
+//horizontalNav.onclick = expandList;
+
+// Closing menu button
+function closeMenu() {
+  $(body).removeClass('with-menu');
+  $(body).removeClass('with-menu-tall');
+}
+
+function openMenu() {
+  if($(body).hasClass('with-menu')) {
+    $(body).toggleClass('with-menu-tall');
+  //  $('#main-menu').css('height', window.innerHeight);
+    // if($(body).hasClass('with-menu-tall')) {
+
+    // }
+  }
+  $(body).toggleClass('with-menu');
+
+  //let f = $('#main-menu');
+ // h = f.height();
+//  f.toggleClass('active');
+//   if($(body).hasClass('with-menu')) {
+
+// // if (f.hasClass('active')) {
+//     f.animate({
+//     //  top: -(window.innerHeight),
+//      // opacity:0.5,
+//      // height: (window.innerHeight/2)
+//     });
+//   }
+//   else {
+//     // f.animate({
+//     //     bottom: 0
+//     // });
+//   }
+  return false;
+}
+
 
 // To include other JS files
 function includeJs(jsFilePath) {

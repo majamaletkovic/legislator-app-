@@ -9,3 +9,15 @@
   -webkit-border-radius: $radius;
   border-radius: $radius;
 }
+
+@mixin border-top-left-radius($radius) {
+  -moz-border-top-left-radius: $radius;
+  -webkit-border-top-left-radius: $radius;
+  border-top-left-radius: $radius;
+}
+
+@mixin border-top-right-radius($radius) {
+  -moz-border-top-right-radius: $radius;
+  -webkit-border-top-right-radius: $radius;
+  border-top-right-radius: $radius;
+}

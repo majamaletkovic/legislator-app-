@@ -1,5 +1,6 @@
 body {
   font-family: $font_0;
+  position: relative;
   // scroll-snap-type: mandatory;
   // scroll-snap-points-y: repeat(100vh);
   // scroll-snap-type: y proximity;
@@ -39,3 +40,16 @@ h1 {
     background: $color_silver_approx !important;
   }
 }
+
+#overlay {
+  display: none;
+  width: 0;
+  height: 0;
+  background: $icon-gray;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+  z-index: 2;
+}
+
+

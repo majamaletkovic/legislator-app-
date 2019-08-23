@@ -23,7 +23,7 @@
 
 </head>
 
-<body id="body">
+<body id="body" class="body">
   <header id="header">
       <button class="back-button" onclick="goBack()">
         <i class="fa fa-lg fa-angle-left"></i>
@@ -177,6 +177,7 @@
   <section>
     <h1>Section Five</h1>
   </section> -->
+
   <footer id="footer">
     <div class="row align-items-center h-100">
       <div class="col-3">
@@ -189,11 +190,46 @@
         <i class="fa fa-search fa-lg"></i>
       </div>
       <div class="col-3">
-        <i class="fa fa-bars fa-lg"></i>
+        <i class="fa fa-bars fa-lg"
+          id="main-menu-toggle"
+          onclick="openMenu()"></i>
       </div>
     </div>
   </footer>
 
+  <div id="main-menu">
+    <header class="main-menu-header">
+      <i class="fa fa-close" onclick="closeMenu()"></i>
+      <h5 class="text-left">Welcome Secretary O'Brien</h5>
+    </header>
+    <div class="row">
+      <div class="col-12 link">
+        <i class="fa fa-bell"></i>
+        <a href="#">Alert Settings</a>
+      </div>
+      <div class="col-12 link">
+        <i class="fa fa-sign-out"></i>
+        <a href="#">Sign Out</a>
+      </div>
+      <div class="col-12 link">
+        <i class="fa fa-user"></i>
+        <a href="#">Sponsor Resolutions</a>
+      </div>
+      <div class="col-12 link">
+        <i class="fa fa-file-text-o"></i>
+        <a href="#">Request Draft</a>
+      </div>
+      <div class="col-12 link">
+        <i class="fa fa-phone"></i>
+        <a href="#">Call Help Desk</a>
+      </div>
+      <div class="col-12 link">
+        <i class="fa fa-wrench"></i>
+        <a href="#">Account Settings</a>
+      </div>
+    </div>
+  </div>
+  <div id="overlay"></div>
   <!-- JS import  -->
   <!-- jQuery library -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
