@@ -167,7 +167,7 @@ h1 {
   bottom: 0;
   left: 0;
   opacity: 0;
-  height: 0;
+  height: 0%;
   width: 0;
   z-index: 3;
   -moz-transition: opacity 1s, height 1s ease-in-out;
@@ -214,6 +214,56 @@ h1 {
   height: 100%; }
 
 .with-menu #overlay, .with-menu-tall.with-menu #overlay, .with-menu-tall #overlay {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%; }
+
+#search {
+  background: white;
+  visibility: hidden;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  z-index: 3;
+  -webkit-animation: anim 2s 2;
+  animation: anim 2s 2; }
+
+@-webkit-keyframes anim-back {
+  from {
+    -webkit-transform: rotateY(0deg); }
+  to {
+    -webkit-transform: rotateY(360deg); } }
+@keyframes anim-back {
+  from {
+    transform: rotateY(0deg); }
+  to {
+    transform: rotateY(360deg); } }
+@-webkit-keyframes anim {
+  from {
+    -webkit-transform: rotateY(0deg); }
+  to {
+    -webkit-transform: rotateY(360deg); } }
+@keyframes anim {
+  from {
+    transform: rotateY(0deg); }
+  to {
+    transform: rotateY(360deg); } }
+.with-search #search {
+  opacity: 1;
+  visibility: visible;
+  position: fixed;
+  width: calc(100% - 20px);
+  height: 200px;
+  top: 80px;
+  left: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  -webkit-animation: anim-back 2s 1;
+  animation: anim-back 2s 1; }
+.with-search #overlay {
   position: fixed;
   display: block;
   width: 100%;

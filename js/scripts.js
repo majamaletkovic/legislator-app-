@@ -50,19 +50,7 @@ listSectionHammer
   });
 
 
-//Gestures on the main menu
-mainMenuHammer
-  .on('panup', function(ev) {
-    openMenu();
-  })
-  .on('swipedown', function(ev) {
-    //Not working yet
-    closeMenu();
-  })
-  .on('pandown', function(ev) {
-    //Not working yet
-    closeMenu();
-  });
+
 
 
  let introDataHeight = document.getElementById('intro-data').offsetHeight;
@@ -114,6 +102,28 @@ function expandList(e) {
   return false;
 }
 
+//enable all directions
+mainMenuHammer.get('swipe').set({
+  direction: Hammer.DIRECTION_ALL,
+  threshold: 1,
+  velocity:0.1
+});
+
+//Gestures on the main menu
+mainMenuHammer
+  .on('panup', function(ev) {
+    openMenu();
+  })
+  .on('swipe swipedown pandown tap press swiperight swipeleft', function(ev) {
+    if ($(body).hasClass('with-menu')){
+      if($(body).hasClass('with-menu-tall')) {
+        $(body).removeClass('with-menu-tall');
+      }
+      else {
+        closeMenu();
+      }
+    }
+  });
 
 
 //When whole body scrolls
@@ -141,35 +151,36 @@ function expandList(e) {
 function closeMenu() {
   $(body).removeClass('with-menu');
   $(body).removeClass('with-menu-tall');
+  return false;
 }
 
 function openMenu() {
   if($(body).hasClass('with-menu')) {
     $(body).toggleClass('with-menu-tall');
-  //  $('#main-menu').css('height', window.innerHeight);
-    // if($(body).hasClass('with-menu-tall')) {
-
-    // }
   }
   $(body).toggleClass('with-menu');
+  return false;
+}
 
-  //let f = $('#main-menu');
- // h = f.height();
-//  f.toggleClass('active');
-//   if($(body).hasClass('with-menu')) {
+function openSearch() {
+  $(body).toggleClass('with-search');
+  return false;
+}
 
-// // if (f.hasClass('active')) {
-//     f.animate({
-//     //  top: -(window.innerHeight),
-//      // opacity:0.5,
-//      // height: (window.innerHeight/2)
-//     });
-//   }
-//   else {
-//     // f.animate({
-//     //     bottom: 0
-//     // });
-//   }
+function closeSearch() {
+  $(body).removeClass('with-search');
+  return false;
+}
+
+
+let overlay = document.getElementById('overlay');
+// If overlay is clicked, close search or menu
+// whatever has been opened
+overlay.onclick = closeAll;
+
+function closeAll(e) {
+  closeMenu();
+  closeSearch();
   return false;
 }
 
