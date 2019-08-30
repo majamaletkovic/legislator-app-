@@ -9,6 +9,47 @@
   z-index: 3;
   -webkit-animation: anim 2s 2;
   animation: anim 2s 2;
+  padding: 10px;
+  .search-header {
+    position: relative;
+    padding-left: 20px;
+    i {
+      position: absolute;
+      right: 5px;
+      top: 0px;
+      cursor: pointer;
+      z-index: 4;
+    }
+  }
+  .nav.nav-pills {
+    a {
+      text-transform: uppercase;
+      color: $icon-gray;
+      &.active {
+        color: $black;
+        border-bottom: 5px solid $orange;
+        @include border-radius(0);
+        padding-bottom: 0;
+      }
+    }
+  }
+  #bills-search, #members-search, #committees-search {
+    padding: 20px 0 20px 0;
+  }
+  .select2-container {
+    width: 100%!important;
+  }
+  .senate-check {
+    margin-left: 2rem;
+  }
+  /* Change checkbox style */
+  .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: $violet_dark;
+  }
+  .custom-control-input:checked~.custom-control-label::before {
+    color: $white;
+    background-color: $violet_dark;
+  }
 }
 @-webkit-keyframes anim-back {
   from {-webkit-transform: rotateY(0deg);}
@@ -34,7 +75,7 @@
     visibility: visible;
     position: fixed;
     width: calc(100% - 20px);
-    height: 200px;
+    height: 170px;
     top: 80px;
     left: 0;
     margin-left: 10px;

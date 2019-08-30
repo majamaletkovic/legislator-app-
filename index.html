@@ -9,7 +9,9 @@
   <meta name="author" content="SitePoint">
 
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
-
+<!--     <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" /> -->
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <!-- Pure CSS -->
@@ -18,8 +20,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Font Roboto -->
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <!-- Select2 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
   <!-- Main CSS -->
-  <link rel="stylesheet" href="css/main.css?v=1.0">
+  <link rel="stylesheet" href="css/main.css">
 
 </head>
 
@@ -79,7 +83,6 @@
     <section class="nav-section" id="nav-section">
         <div id="horizontal-nav"
          class="pure-menu pure-menu-horizontal pure-menu-scrollable">
-    <!--     <a href="#" class="pure-menu-link pure-menu-heading">Yahoo</a> -->
           <ul class="pure-menu-list nav nav-pills" role="tablist">
             <li class="pure-menu-item nav-item">
               <a href="#status"
@@ -233,10 +236,76 @@
   </div>
 
   <div id="search">
-    BBB
+    <header class="search-header">
+      <i class="fa fa-close" onclick="closeSearch()"></i>
+    </header>
+    <div class="row">
+        <div class="col-12">
+          <!-- Nav pills -->
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="pill" href="#bills-search">Bills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="pill" href="#committees-search">Committees</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="pill" href="#members-search">Members</a>
+            </li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div class="tab-pane container active" id="bills-search">
+              <select id="bills-select" class="js-example-basic-single" name="state">
+                <option value="null">Select a Bill</option>
+                <option value="4008">4008</option>
+                <option value="4009">4009</option>
+                <option value="4010">4010</option>
+                <option value="4011">4011</option>
+                <option value="4012">4012</option>
+                <option value="4013">4013</option>
+              </select>
+            </div>
+            <div class="tab-pane container fade" id="committees-search">
+              <select id="committees-select" class="js-example-basic-single" name="state">
+                <option value="null">Select a Committee</option>
+                <option value="1">Communication and Technology</option>
+                <option value="2">Elections and Ethics</option>
+                <option value="3">Energy</option>
+                <option value="4">Local Government and Municipal Finance</option>
+                <option value="5">Nautural Resources and Recreation</option>
+              </select>
+            </div>
+            <div class="tab-pane container fade" id="members-search">
+              <select id="members-select" class="js-example-basic-single" name="state">
+                <option value="null">Select a Member</option>
+                <option value="1a">Gary Eisen (Rep.)</option>
+                <option value="2a">Gary Howel (Rep.)</option>
+                <option value="3a">Graham Filler (Rep.)</option>
+                <option value="4a">LaTanya Garret (Rep.)</option>
+                <option value="5a">Alex Garza (Rep.)</option>
+              </select>
+            </div>
+            <div class="form-group form-check-inline">
+              <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="houseCheck">
+                  <label class="custom-control-label" for="houseCheck">House</label>
+              </div>
+              <div class="custom-control custom-checkbox senate-check">
+                  <input type="checkbox" class="custom-control-input" id="senateCheck">
+                  <label class="custom-control-label" for="senateCheck">Senate</label>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
   </div>
   <div id="overlay"></div>
+
+
   <!-- JS import  -->
+
   <!-- jQuery library -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <!-- Popper JS -->
@@ -249,6 +318,8 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.5.2/randomColor.js"></script>
   <!-- Hammer JS -->
   <script type="text/javascript" src="http://hammerjs.github.io/dist/hammer.min.js"></script>
+  <!-- Select 2 -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
   <!-- Main JS -->
   <script type="text/javascript" src="js/scripts.js"></script>
 

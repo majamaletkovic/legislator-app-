@@ -155,6 +155,7 @@ function closeMenu() {
 }
 
 function openMenu() {
+  closeSearch();
   if($(body).hasClass('with-menu')) {
     $(body).toggleClass('with-menu-tall');
   }
@@ -163,6 +164,7 @@ function openMenu() {
 }
 
 function openSearch() {
+  closeMenu();
   $(body).toggleClass('with-search');
   return false;
 }
@@ -171,7 +173,6 @@ function closeSearch() {
   $(body).removeClass('with-search');
   return false;
 }
-
 
 let overlay = document.getElementById('overlay');
 // If overlay is clicked, close search or menu
@@ -194,3 +195,18 @@ function includeJs(jsFilePath) {
 
     document.body.appendChild(js);
 }
+
+$(document).ready(function() {
+  $('#bills-select').select2({
+    placeholder: 'Select an option',
+    allowClear: true
+  });
+  $('#members-select').select2({
+    placeholder: 'Select an option',
+    allowClear: true
+  });
+  $('#committees-select').select2({
+    placeholder: 'Select an option',
+    allowClear: true
+  });
+});

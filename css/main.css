@@ -229,7 +229,39 @@ h1 {
   width: 0;
   z-index: 3;
   -webkit-animation: anim 2s 2;
-  animation: anim 2s 2; }
+  animation: anim 2s 2;
+  padding: 10px;
+  /* Change checkbox style */ }
+  #search .search-header {
+    position: relative;
+    padding-left: 20px; }
+    #search .search-header i {
+      position: absolute;
+      right: 5px;
+      top: 0px;
+      cursor: pointer;
+      z-index: 4; }
+  #search .nav.nav-pills a {
+    text-transform: uppercase;
+    color: #A7A5A6; }
+    #search .nav.nav-pills a.active {
+      color: black;
+      border-bottom: 5px solid #ff7f35;
+      -moz-border-radius: 0;
+      -webkit-border-radius: 0;
+      border-radius: 0;
+      padding-bottom: 0; }
+  #search #bills-search, #search #members-search, #search #committees-search {
+    padding: 20px 0 20px 0; }
+  #search .select2-container {
+    width: 100% !important; }
+  #search .senate-check {
+    margin-left: 2rem; }
+  #search .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #413971; }
+  #search .custom-control-input:checked ~ .custom-control-label::before {
+    color: white;
+    background-color: #413971; }
 
 @-webkit-keyframes anim-back {
   from {
@@ -256,7 +288,7 @@ h1 {
   visibility: visible;
   position: fixed;
   width: calc(100% - 20px);
-  height: 200px;
+  height: 170px;
   top: 80px;
   left: 0;
   margin-left: 10px;
@@ -302,5 +334,11 @@ ul.pure-menu-list {
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   background: transparent;
   font-weight: bold; }
+
+input[type=search]::-webkit-search-cancel-button {
+  -webkit-appearance: searchfield-cancel-button !important; }
+
+input[type=search] {
+  -webkit-appearance: none; }
 
 /*# sourceMappingURL=main.css.map */
