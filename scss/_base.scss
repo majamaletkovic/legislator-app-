@@ -1,9 +1,16 @@
 body {
   font-family: $font_0;
   position: relative;
+  background: $black;
   // scroll-snap-type: mandatory;
   // scroll-snap-points-y: repeat(100vh);
   // scroll-snap-type: y proximity;
+  &.flip {
+    animation: 1s ease-out 0s 1 flipAround;
+  }
+  &.slide-left {
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+  }
 }
 .wrapper-section {
   scroll-snap-type: mandatory;
@@ -48,8 +55,40 @@ h1 {
   background: $icon-gray;
   top: 0;
   left: 0;
-  opacity: 0.7;
+  opacity: 0.8;
   z-index: 2;
+}
+
+.orange {
+  color: $orange;
+}
+
+@-webkit-keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes flipAround {
+  from {-webkit-transform: rotateY(180deg);}
+  to {-webkit-transform: rotateY(0deg);}
+}
+
+@keyframes flipAround {
+  from {transform: rotateY(180deg);}
+  to {transform: rotateY(0deg);}
 }
 
 

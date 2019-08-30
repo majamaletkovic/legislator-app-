@@ -1,0 +1,19 @@
+.alerts {
+  .user-image {
+    @include border-radius(50%);
+    width: 40px;
+    height: auto;
+    border: 2px solid white;
+    position: absolute;
+    left: 20px;
+    top: 13px;
+    z-index: 2;
+  }
+  .fa-cog {
+    z-index: 2;
+    position: absolute;
+    position: absolute;
+    right: 20px;
+    top: 25px;
+  }
+}

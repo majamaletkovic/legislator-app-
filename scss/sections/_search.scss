@@ -7,8 +7,8 @@
   height: 0;
   width: 0;
   z-index: 3;
-  -webkit-animation: anim 2s 2;
-  animation: anim 2s 2;
+  // -webkit-animation: anim 2s 1;
+  // animation: anim 2s 1;
   padding: 10px;
   .search-header {
     position: relative;
@@ -51,23 +51,23 @@
     background-color: $violet_dark;
   }
 }
-@-webkit-keyframes anim-back {
-  from {-webkit-transform: rotateY(0deg);}
-  to {-webkit-transform: rotateY(360deg);}
-}
+// @-webkit-keyframes anim-back {
+//   from {-webkit-transform: rotateY(0deg);}
+//   to {-webkit-transform: rotateY(360deg);}
+// }
 
-@keyframes anim-back {
-  from {transform: rotateY(0deg);}
-  to {transform: rotateY(360deg);}
-}
+// @keyframes anim-back {
+//   from {transform: rotateY(0deg);}
+//   to {transform: rotateY(360deg);}
+// }
 @-webkit-keyframes anim {
-  from {-webkit-transform: rotateY(0deg);}
-  to {-webkit-transform: rotateY(360deg);}
+  from {-webkit-transform: rotateY(180deg);}
+  to {-webkit-transform: rotateY(0deg);}
 }
 
 @keyframes anim {
-  from {transform: rotateY(0deg);}
-  to {transform: rotateY(360deg);}
+  from {transform: rotateY(180deg);}
+  to {transform: rotateY(0deg);}
 }
 .with-search {
   #search {
@@ -75,13 +75,17 @@
     visibility: visible;
     position: fixed;
     width: calc(100% - 20px);
-    height: 170px;
+    height: fit-content;
+    display: table;
     top: 80px;
     left: 0;
     margin-left: 10px;
     margin-right: 10px;
-    -webkit-animation: anim-back 2s 1;
-    animation: anim-back 2s 1;
+    -webkit-animation: anim 0.5s 1;
+    animation: anim 0.5s 1;
+    // -webkit-animation: anim-back 2s 1;
+    // animation: anim-back 2s 1;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));
   }
   #overlay {
     position: fixed;

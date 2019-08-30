@@ -24,96 +24,40 @@
 
 </head>
 
-<body id="body" class="body">
+<body id="body" class="body alerts">
   <header id="header">
-      <button class="back-button" onclick="goBack()">
-        <i class="fa fa-lg fa-angle-left"></i>
-      </button>
-      <h1>Bills</h1>
+    <img src="/images/user.jpg"
+      class="user-image"
+      onclick="" />
+    <h1>Alerts</h1>
+    <i class="fa fa-lg fa-cog"></i>
   </header>
   <div class="wrapper-section">
-     <section class="top-section" id="top-section">
-      <div class="container" id="intro-data">
-        <div class="row">
-          <div class="top-content col-12">
-            <i class="fa fa-ellipsis-v menu-button"
-              onclick="billAlerts('HB4474')"></i>
-            <h2 class="title">HB4474</h2>
-            <img class="bill-status" src="/images/bill-status.jpg" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="main-sponsor-tag col-12">
-            <span>Tom Barret</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="sponsors-list col-12">
-            Laurie Pohutsky,
-            Brenda Carter,
-            Alex Garza,
-            Isaac Robinson,
-            John Cirkun,
-            Jim Ellison,
-            Lori Stone,
-            Alex Garza,
-            Isaac Robinson,
-            John Cirkun,
-          </div>
-        </div>
-        <div class="row">
-          <div class="committee-tag col-12">
-            <span>Natural resources: gas and oil</span>
-            <span>Energy: gas and oil</span>
-            <span>Enviromental protect on: other</span>
-          </div>
-        </div>
-        </div>
-        <div class="container">
-        <div class="row">
-          <div class="summary-text col-12">
-            <div class="scroll-panel" id="summary-text-scroll">Natural resources: gas and oil; hydraulic fracturing; require notice adn and oportunity for a public hearing prior to authorizing. Amends secs.1301 & 615285 of 1994 PA 451 (MCL 324.1310 & 324.61525).Natural resources: gas and oil; hydraulic fracturing; require notice adn and oportunity for a public hearing prior to authorizing. Amends secs.1301 & 615285 of 1994 PA 451 (MCL 324.1310 & 324.61525).Natural resources: gas and oil; hydraulic fracturing; require notice adn and oportunity for a public hearing prior to authorizing. Amends secs.1301 & 615285 of 1994 PA 451 (MCL 324.1310 & 324.61525).Natural resources: gas and oil; hydraulic fracturing; require notice adn and oportunity for a public hearing prior to authorizing. Amends secs.1301 & 615285 of 1994 PA 451 (MCL 324.1310 & 324.61525).Natural resources: gas and oil; hydraulic fracturing; require notice adn and oportunity for a public hearing prior to authorizing. Amends secs.1301 & 615285 of 1994 PA 451 (MCL 324.1310 & 324.61525).Natural resources: gas and oil; hydraulic fracturing; require notice adn and oportunity for a public hearing prior to authorizing. Amends secs.1301 & 615285 of 1994 PA 451 (MCL 324.1310 & 324.61525).Natural resources: gas and oil; hydraulic fracturing; require notice adn and oportunity for a public hearing prior to authorizing. Amends secs.1301 & 615285 of 1994 PA 451 (MCL 324.1310 & 324.61525).Natural resources: gas and oil; hydraulic fracturing; require notice adn and oportunity for a public hearing prior to authorizing. Amends secs.1301 & 615285 of 1994 PA 451 (MCL 324.1310 & 324.61525).Natural resources: gas and oil; hydraulic fracturing; require notice adn and oportunity for a public hearing prior to authorizing. Amends secs.1301 & 615285 of 1994 PA 451 (MCL 324.1310 & 324.61525).
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     <section class="nav-section" id="nav-section">
-        <div id="horizontal-nav"
-         class="pure-menu pure-menu-horizontal pure-menu-scrollable">
-          <ul class="pure-menu-list nav nav-pills" role="tablist">
-            <li class="pure-menu-item nav-item">
-              <a href="#status"
-                data-toggle="tab"
-                class="pure-menu-link nav-link active">Status</a>
-            </li>
-            <li class="pure-menu-item nav-item">
-              <a href="#versions"
-                data-toggle="tab"
-                class="pure-menu-link nav-link">Versions</a>
-            </li>
-            <li class="pure-menu-item nav-item">
-              <a href="#amendments"
-                data-toggle="tab"
-                class="pure-menu-link nav-link">Amendments</a>
-            </li>
-            <li class="pure-menu-item nav-item"><a href="#" class="pure-menu-link">Sponsors</a></li>
-            <li class="pure-menu-item nav-item"><a href="#" class="pure-menu-link">Finance</a></li>
-            <li class="pure-menu-item nav-item"><a href="#" class="pure-menu-link">Autos</a></li>
-            <li class="pure-menu-item nav-item"><a href="#" class="pure-menu-link">Beauty</a></li>
-            <li class="pure-menu-item nav-item"><a href="#" class="pure-menu-link">Movies</a></li>
-            <li class="pure-menu-item nav-item""><a href="#" class="pure-menu-link">Small Business</a></li>
-            <li class="pure-menu-item nav-item""><a href="#" class="pure-menu-link">Cricket</a></li>
-            <li class="pure-menu-item nav-item""><a href="#" class="pure-menu-link">Tech</a></li>
-            <li class="pure-menu-item nav-item""><a href="#" class="pure-menu-link">World</a></li>
-            <li class="pure-menu-item nav-item""><a href="#" class="pure-menu-link">News</a></li>
-            <li class="pure-menu-item nav-item""><a href="#" class="pure-menu-link">Support</a></li>
+      <div id="horizontal-nav"
+        class="pure-menu pure-menu-horizontal pure-menu-scrollable">
+        <ul class="pure-menu-list nav nav-pills" role="tablist">
+          <li class="pure-menu-item nav-item">
+            <a href="#bills"
+              data-toggle="tab"
+              class="pure-menu-link nav-link active">Bills</a>
+          </li>
+          <li class="pure-menu-item nav-item">
+            <a href="#committees"
+              data-toggle="tab"
+              class="pure-menu-link nav-link">Committees</a>
+          </li>
+          <li class="pure-menu-item nav-item">
+            <a href="#session"
+              data-toggle="tab"
+              class="pure-menu-link nav-link">Session</a>
+          </li>
         </ul>
       </div>
     </section>
     <section class="list-section" id="list-section">
       <div class="tab-content">
-        <div id="status" class="tab-pane active">
+        <div id="bills" class="tab-pane active">
           <div class="row text-left list-item">
             <div class="col-12 date">Apr.18.2019.</div>
             <div class="col-12 title">
@@ -163,11 +107,11 @@
             </div>
           </div>
         </div>
-        <div id="versions" class="tab-pane">
-          My Versions
+        <div id="committees" class="tab-pane">
+          My committees
         </div>
-        <div id="amendments" class="tab-pane">
-          My Amendments
+        <div id="session" class="tab-pane">
+          My session
         </div>
       </div>
     </section>
@@ -182,8 +126,7 @@
   <footer id="footer">
     <div class="row align-items-center h-100">
       <div class="col-3">
-        <i class="fa fa-bell fa-lg"
-          onclick="window.location.href='/alerts.html?class=flip'"></i>
+        <i class="fa fa-bell fa-lg orange"></i>
       </div>
       <div class="col-3">
       <i class="fa fa-calendar fa-lg"></i>

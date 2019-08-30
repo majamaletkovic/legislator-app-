@@ -1,11 +1,32 @@
 includeJs("js/scrollSnapPolyfillScript.js");
 
-//Back Button
+//Body animations
+let bodyClass = location.search.split('class=')[1];
+let body = document.getElementById('body');
 
-function goBack() {
-  window.history.back();
+if(bodyClass) {
+  $(body).addClass(bodyClass);
 }
 
+
+
+//Back Button
+
+//This should pass ?class=slide-left to the URL
+//For animation effect
+function goBack() {
+ //  let x = document.referrer;
+ // // document.cookie = name +"=slide-left; expires=whenever;path=/";
+ //  document.cookie = "slide-left;path=/";
+ //  window.history.back();
+ // let updatedLink = window.history.go(-1) + '/?class=slide-left';
+  let updatedLink =  document.referrer + '/?class=slide-left';
+ // let updatedLink =  window.history.back() + '/?class=slide-left';
+  location.href = updatedLink;
+  console.log(updatedLink, 'updatedLink');
+}
+
+// console.log(document.cookie, 'document.cookie');
 
 let topSection = document.getElementById('top-section');
 let navSection = document.getElementById('nav-section');
@@ -14,7 +35,6 @@ let horizontalNav = document.getElementById('horizontal-nav');
 let header = document.getElementById('header');
 let mainMenu = document.getElementById('main-menu');
 
-let topSectionHammer = new Hammer(topSection);
 let listSectionHammer = new Hammer(listSection);
 let mainMenuHammer = new Hammer(mainMenu);
 
@@ -22,11 +42,14 @@ let mainMenuHammer = new Hammer(mainMenu);
 //Calculate 100vh - height of the nav bar
 let theHeight = window.innerHeight - horizontalNav.offsetHeight - header.offsetHeight - 50;
 
-// To reveal part of the top section that is not visible on page load
-topSectionHammer
-  .on('pandown', function(ev) {
-    topSection.style.height = theHeight +'px';
-  });
+if(topSection) {
+  let topSectionHammer = new Hammer(topSection);
+  // To reveal part of the top section that is not visible on page load
+  topSectionHammer
+    .on('pandown', function(ev) {
+      topSection.style.height = theHeight +'px';
+    });
+}
 
 
 //Gestures on the list section
@@ -51,16 +74,18 @@ listSectionHammer
 
 
 
+ let introData = document.getElementById('intro-data');
 
-
- let introDataHeight = document.getElementById('intro-data').offsetHeight;
  let headerHeight = document.getElementById('header').offsetHeight;
  let summaryTextScroll = document.getElementById('summary-text-scroll');
- let body = document.getElementById('body');
 
- //Calculate the height of the top text scrollbar
- let scrollHeight = theHeight - (introDataHeight) - 20 + 'px';
- summaryTextScroll.style.height = scrollHeight;
+
+ if(introData) {
+    let introDataHeight = document.getElementById('intro-data').offsetHeight;
+    //Calculate the height of the top text scrollbar
+    let scrollHeight = theHeight - (introDataHeight) - 20 + 'px';
+    summaryTextScroll.style.height = scrollHeight;
+  }
 
 
   //Make sure horisontal nav bar sticks to the top
@@ -155,7 +180,7 @@ function closeMenu() {
 }
 
 function openMenu() {
-  closeSearch();
+  closeAll();
   if($(body).hasClass('with-menu')) {
     $(body).toggleClass('with-menu-tall');
   }
@@ -164,7 +189,7 @@ function openMenu() {
 }
 
 function openSearch() {
-  closeMenu();
+  closeAll();
   $(body).toggleClass('with-search');
   return false;
 }
@@ -182,9 +207,18 @@ overlay.onclick = closeAll;
 function closeAll(e) {
   closeMenu();
   closeSearch();
+  closeBillAlerts();
   return false;
 }
 
+function billAlerts(billno) {
+  closeAll();
+  $(body).toggleClass('with-bill-alerts');
+}
+
+function closeBillAlerts() {
+  $(body).removeClass('with-bill-alerts');
+}
 
 // To include other JS files
 function includeJs(jsFilePath) {

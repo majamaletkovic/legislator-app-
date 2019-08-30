@@ -1,0 +1,70 @@
+#bill-alerts {
+  background: $white;
+  visibility: hidden;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  z-index: 3;
+  padding: 0px;
+}
+
+@-webkit-keyframes flipHorizontal {
+  from {-webkit-transform: rotateX(60deg);}
+  to {-webkit-transform: rotateX(0deg);}
+}
+
+@keyframes flipHorizontal {
+  from {transform: rotateX(60deg);}
+  to {transform: rotateX(0deg);}
+}
+
+.with-bill-alerts {
+  #bill-alerts {
+    opacity: 1;
+    visibility: visible;
+    position: fixed;
+    width: calc(100% - 20px);
+    height: fit-content;
+    display: table;
+    top: 100px;
+    left: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    -webkit-animation: flipHorizontal 1s 1;
+    animation: flipHorizontal 1s 1;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 95%;
+      width: 0;
+      height: 0;
+      border: 1.031em solid transparent;
+      border-bottom-color: $white;
+      border-top: 0;
+      border-right: 0;
+      margin-left: -0.516em;
+      margin-top: -1.031em;
+    }
+    i {
+      color: $icon-gray;
+    }
+    .link {
+      padding: 15px 0px 15px 30px;
+      border-bottom: 1px solid $color_quill_gray_approx;
+      a {
+        color: $black;
+      }
+    }
+  }
+  #overlay {
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
